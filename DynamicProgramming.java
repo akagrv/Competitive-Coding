@@ -30,28 +30,6 @@ public class DynamicProgramming {
 			return LCS[l1][l2] = Math.max(LCSHelper(s1,l1-1,s2,l2, LCS),LCSHelper(s1,l1,s2,l2-1, LCS));
 		}
 	}
-	
-	public static int longestSubstring(String str) {
-		if (str.length() < 2)
-			return str.length();
-		int[] ls = new int[str.length()];
-
-		Arrays.fill(ls, 1);
-		int max =1;
-
-		for (int i = 1; i < str.length(); i++) {
-			for (int j = 0; j < i; j++) {
-				if (str.charAt(i) != str.charAt(j) && ls[i] < ls[j] + 1) {
-					ls[i] = ls[j] + 1;
-					max = Math.max(max, ls[i]);
-				}else {
-					ls[i] = 1;
-					break;
-				}
-			}
-		}
-		return max;
-	}
 
 	public static int longestIncreasingSubsequence(int[] arr) {
 		if (arr.length < 2)
